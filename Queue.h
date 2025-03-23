@@ -5,7 +5,7 @@
 
 // File header untuk modul logika struktur data queue
 
-void init(Pasien *pasien);
+void init(address *first);
 bool isFull(Pasien pasien);
 bool isEmpty(Pasien pasien);
 int queueLength(Pasien pasien);

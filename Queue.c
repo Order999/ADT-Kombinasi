@@ -3,8 +3,8 @@
 // File body untuk logika struktur data queue
 
 // Prosedur untuk menginisialisasi Teller->first dengan Nil
-void init(Pasien *pasien){
-	pasien->first = Nil;
+void init(address *first){
+	*first = Nil;
 }
 
 // Function untuk mengecek apakah antrian teller sudah penuh
@@ -30,12 +30,12 @@ int queueLength(Pasien pasien){
 // Prosedur untuk memasukkan antrian ke paling belakang
 void queue(Pasien *pasien, char nama[], int choice, int antrian){
 	if (isFull(*pasien)){
-        printf("Poli %s sedang penuh", getPoli(choice));
+        printf("Poli %s sedang penuh\n", getPoli(choice));
         return;
     }
 	
     insertLast(&(first(*pasien)), nama, choice, antrian);
-    printf("Pasien %s telah didaftarkan ke Poli %s dengan nomor antrian %d", nama, getPoli(choice), antrian);
+    printf("Pasien %s telah didaftarkan ke Poli %s dengan nomor antrian %d\n", nama, getPoli(choice), antrian);
 }
 
 // Prosedut untuk memproses antrian dari paling depan
@@ -49,7 +49,7 @@ void dequeue(Pasien *pasien){
 
 void initPoli(Poli **first, int id, char namaPoli[]){
 	Poli *P = (Poli*) malloc(sizeof(Poli));
-	P->id = id;;
+	P->id = id;
 	strcpy(P->poli, namaPoli);
 	P->next = Nil;
     
@@ -65,9 +65,13 @@ void initPoli(Poli **first, int id, char namaPoli[]){
 }
 
 char* getPoli(int choice){
-	Poli *temp = poliFirst;
-	while(choice != temp->id){
-		temp = temp->next;
-	}
-	return temp->poli;
+    Poli *temp = poliFirst;
+    while(temp != NULL){
+        if (choice == temp->id) {
+            return temp->poli;
+        }
+        temp = temp->next;
+    }
+    return "Poli Tidak Ditemukan"; // Mengembalikan pesan jika poli tidak ditemukan
 }
+

@@ -4,4 +4,4 @@ void subMenu1(Pasien *PoliUmum, Pasien *PoliAnak, int *antrianPoliUmum, int *ant
 void subMenu2(Pasien *PoliUmum, Pasien *PoliAnak, Riwayat *poliUmum, Riwayat *poliAnak);
 void subMenu3(Pasien PoliUmum, Pasien PoliAnak);
 void subMenu4(Riwayat poliUmum, Riwayat poliAnak);
-void tampilkanList(address first);
+void tampilkanList(address firstORtop);

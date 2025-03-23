@@ -16,13 +16,13 @@ void subMenu1(Pasien *PoliUmum, Pasien *PoliAnak, int *antrianPoliUmum, int *ant
 	    		printf("Masukkan nama: ");
 	    		scanf("%s", nama);
 	    		queue(PoliUmum, nama, 1, *antrianPoliUmum);
-	    		*antrianPoliUmum++;
+	    		(*antrianPoliUmum)++;
 	    		break;
 	    	case 2:
 	    		printf("Masukkan nama: ");
 	    		scanf("%s", nama);
 	    		queue(PoliAnak, nama, 2, *antrianPoliAnak);
-	    		*antrianPoliAnak++;
+	    		(*antrianPoliAnak)++;
 	    		break;
 	    	case 3:
 	    		break;
@@ -43,14 +43,10 @@ void subMenu2(Pasien *PoliUmum, Pasien *PoliAnak, Riwayat *poliUmum, Riwayat *po
 		
 		switch(pilihan){
 	    	case 1:
-	    		push(poliUmum, *PoliUmum);
-	    		dequeue(PoliUmum);
-	    		printf("Pasien %s dengan nomor antrian %d telah diproses", poliUmum->top->nama, poliUmum->top->antrian);
+	    		push(poliUmum, PoliUmum);
 	    		break;
 	    	case 2:
-	    		push(poliAnak, *PoliAnak);
-	    		dequeue(PoliAnak);
-	    		printf("Pasien %s dengan nomor antrian %d telah diproses", poliAnak->top->nama, poliAnak->top->antrian);
+	    		push(poliAnak, PoliAnak);
 	    		break;
 	    	case 3:
 	    		break;
@@ -74,7 +70,7 @@ void subMenu3(Pasien PoliUmum, Pasien PoliAnak){
 	    		tampilkanList(PoliUmum.first);
 	    		break;
 	    	case 2:
-	    		tampilkanList(PoliUmum.first);
+	    		tampilkanList(PoliAnak.first);
 	    		break;
 	    	case 3:
 	    		break;
@@ -96,11 +92,13 @@ void subMenu4(Riwayat poliUmum, Riwayat poliAnak){
 		switch(pilihan){
 	    	case 1:
 	    		printf("==========Riwayat Poli Umum==========");
-	    		tampilkanList(poliAnak.top);
+	    		printf("\n");
+	    		tampilkanList(poliUmum.top);
 	    		break;
 	    	case 2:
 	    		printf("==========Riwayat Poli Anak==========");
-	    		tampilkanList(poliAnak.top);
+	    		printf("\n");
+				tampilkanList(poliAnak.top);
 	    		break;
 	    	case 3:
 	    		break;
@@ -110,12 +108,17 @@ void subMenu4(Riwayat poliUmum, Riwayat poliAnak){
 	}while(pilihan != 3);
 }
 
-void tampilkanList(address first){
+void tampilkanList(address firstORtop){
+	if(firstORtop == Nil){
+		printf("Kosong\n\n");
+		return;
+	}
+	
 	int nomor = 1;
-	while(first != Nil){
-		printf("\n%d. Nama: %s, Nomor Antrian: %d", nomor, first->nama, first->antrian);
-		first = first->next;
+	while(firstORtop != Nil){
+		printf("\n%d. Nama: %s, Nomor Antrian: %d", nomor, firstORtop->nama, firstORtop->antrian);
+		firstORtop = firstORtop->next;
 		nomor ++;
 	}
-	printf("\n");
+	printf("\n\n");
 }

@@ -8,7 +8,7 @@
 #define choice(P) (P)->choice
 #define antrian(P) (P)->antrian
 #define next(P) (P)->next
-//#define first(P) (P).first
+#define first(P) (P).first
 //#define top(P) (P).top
 #define Nil NULL
 

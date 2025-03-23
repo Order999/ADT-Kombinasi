@@ -6,6 +6,6 @@
 #include "LinkedList.h"
 #define Nil NULL
 
-void push(Riwayat *riwayat, Pasien pasien);
+void push(Riwayat *riwayat, Pasien *pasien);
 
 #endif

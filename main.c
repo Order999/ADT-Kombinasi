@@ -9,7 +9,7 @@ int main(int argc, char *argv[]) {
 	Pasien PoliUmum, PoliAnak;
 	Riwayat poliUmum, poliAnak;
 	int antrianPoliUmum = 1, antrianPoliAnak = 1, pilihan;
-	init(&PoliUmum); init(&PoliAnak);
+	init(&(first(PoliUmum))); init(&first(PoliAnak)); init(&(poliUmum.top)); init(&(poliAnak.top));
 	initPoli(&poliFirst, 1, "Poli Umum"); initPoli(&poliFirst, 2, "Poli Anak");
 	
 	do{
