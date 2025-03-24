@@ -1,3 +1,10 @@
+/*Identitas*/
+// Program ini dibuat oleh:
+// Nama 	: Ivan Setiawan Ihsan
+// NIM 		: 241524012
+// Kelas	: 1-A D4 Teknik Informatika
+// Tanggal	: 23 Maret 2025 
+
 #include <stdio.h>
 #include <stdlib.h>
 #include "LinkedList.h"
@@ -37,13 +44,21 @@ int main(int argc, char *argv[]) {
 	    		subMenu4(poliUmum, poliAnak);
 	    		break;
 	    	case 5:
+	    		printf("Tenang, semua List sudah dibebaskan dari memori.\n\n");
 	    		break;
 	    	default:
 	    		printf("\nPilihan tidak valid!\n");
 		}
 	    	
 	}while(pilihan != 5);
-		
-	
+	printf("List PoliUmum (Pasien):");
+	deleteList(&(first(PoliUmum)));
+	printf("List PoliAnak (Pasien):");
+	deleteList(&(first(PoliAnak)));
+	printf("List poliUmum (Riwayat):");
+	deleteList(&(poliUmum.top));
+	printf("List poliAnak (Riwayat):");
+	deleteList(&(poliAnak.top));
+	deleteListPoli(&(poliFirst));
 	return 0;
 }

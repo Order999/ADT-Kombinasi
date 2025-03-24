@@ -15,14 +15,12 @@ void subMenu1(Pasien *PoliUmum, Pasien *PoliAnak, int *antrianPoliUmum, int *ant
 	    	case 1:
 	    		printf("Masukkan nama: ");
 	    		scanf("%s", nama);
-	    		queue(PoliUmum, nama, 1, *antrianPoliUmum);
-	    		(*antrianPoliUmum)++;
+	    		queue(PoliUmum, nama, 1, antrianPoliUmum);
 	    		break;
 	    	case 2:
 	    		printf("Masukkan nama: ");
 	    		scanf("%s", nama);
-	    		queue(PoliAnak, nama, 2, *antrianPoliAnak);
-	    		(*antrianPoliAnak)++;
+	    		queue(PoliAnak, nama, 2, antrianPoliAnak);
 	    		break;
 	    	case 3:
 	    		break;
@@ -43,9 +41,19 @@ void subMenu2(Pasien *PoliUmum, Pasien *PoliAnak, Riwayat *poliUmum, Riwayat *po
 		
 		switch(pilihan){
 	    	case 1:
+	    		if (PoliUmum->first != Nil) {
+				    printf("Pasien %s dengan nomor antrian %d telah diproses\n\n",PoliUmum->first->nama, PoliUmum->first->antrian);
+				}else {
+					printf("Tidak ada pasien dalam antrian\n\n");
+				}
 	    		push(poliUmum, PoliUmum);
 	    		break;
 	    	case 2:
+	    		if (PoliUmum->first != Nil) {
+				    printf("Pasien %s dengan nomor antrian %d telah diproses\n\n",PoliAnak->first->nama, PoliAnak->first->antrian);
+				}else {
+					printf("Tidak ada pasien dalam antrian\n\n");
+				}
 	    		push(poliAnak, PoliAnak);
 	    		break;
 	    	case 3:

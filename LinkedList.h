@@ -9,9 +9,9 @@
 #define antrian(P) (P)->antrian
 #define next(P) (P)->next
 #define first(P) (P).first
-//#define top(P) (P).top
 #define Nil NULL
 
+// Definisi struct untuk  List Pasien
 typedef struct tElmtlist *address;
 typedef struct tElmtlist {
 	char nama[50];
@@ -20,32 +20,29 @@ typedef struct tElmtlist {
 	address next;
 } ElmtList;
 
+// Definisi struct untuk List Poli
 typedef struct Poli{
 	int id;
 	char poli[10];
 	struct Poli *next;
 }Poli;
 
+// Linked List Poli
 Poli *poliFirst;
 
-// Definisi struct baru, karena file LinkedList.h kemarin tidak ada struct untuk pointer ke node paling awal, hanya memakai address First.
+// Linked List Pasien
 typedef struct {
 	address first;
 }Pasien;
 
+// Linked List untuk Riwayat
 typedef struct{
 	address top;
 }Riwayat;
 	
-void insertFirst(address *First, int value);
 void insertLast(address *First, char nama[], int choice, int antrian);
-void insertAfter(address *First, int value);
-void deleteFirst(address *First);
-void deleteLast(address *First);
-void deleteByValue(address *First, int value);
-void printSemuaNode(address First);
-
-
+void deleteList(address *First);
+void deleteListPoli(Poli **poliFirst);
 #endif
 
 
